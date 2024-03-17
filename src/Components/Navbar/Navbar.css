@@ -1,0 +1,10 @@
+.appBar {
+    background-color: white;
+  }
+
+  .logo,
+  .navItem {
+    color: #000;
+    letter-spacing: 10px;
+  }
+  
