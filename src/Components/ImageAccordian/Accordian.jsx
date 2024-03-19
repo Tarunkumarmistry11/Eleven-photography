@@ -20,7 +20,6 @@ export const ImageAccordion = ({ items }) => {
           >
             <img src={item.image} alt={item.alt} /> 
             <div className="content">
-              <span className="material-symbols-outlined">photo_camera</span>
               <div>
                 <h2>{item.header}</h2>
                 <p>{item.text}</p>

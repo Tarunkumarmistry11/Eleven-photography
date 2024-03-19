@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -8,37 +8,61 @@ import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 
 const drawerWidth = 240;
-const navItems = ["Home", "About", "Videography","Prints", "Presets", "Contact"];
+const navItems = [
+  { name: "Home", path: "/" },
+  { name: "About", path: "/about" },
+  { name: "Videos", path: "/videos" },
+  { name: "Prints", path: "/prints" },
+  { name: "Presets", path: "/presets" },
+  { name: "Contact", path: "/contact" }
+];
 
 function DrawerAppBar(props) {
   const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
+
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
 
+ 
+  const selectedItem=location.pathname
+
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2, letterSpacing: "10px", }}>
+    <Box sx={{ textAlign: "center" }}>
+      <Typography variant="h6" sx={{ my: 2, letterSpacing: "10px" }}>
         EL3V3N
       </Typography>
       <Divider />
       <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
+        {navItems.map((item, index) => (
+          <ListItem key={index} disablePadding>
+            <ListItemText 
+              primary={
+                <Link 
+                  to={item.path} 
+                  style={{ 
+                    display: 'flex',
+                    justifyContent: 'center', 
+                    textDecoration: 'none', 
+                    color: selectedItem === item.path ? 'grey' : 'inherit' // Change color based on selection
+                  }}
+                >
+                  {item.name}
+                </Link>
+              } 
+            />
           </ListItem>
         ))}
       </List>
@@ -58,7 +82,11 @@ function DrawerAppBar(props) {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, color: '#000', display: { xs: 'block', sm: 'none'}}}
+            sx={{
+              mr: 2,
+              color: '#000',
+              display: { xs: 'block', sm: 'none' }
+            }}
           >
             <MenuIcon />
           </IconButton>
@@ -68,24 +96,25 @@ function DrawerAppBar(props) {
             sx={{
               flexGrow: 1,
               display: 'block',
-              textAlign: { xs: 'center', sm: 'left'},
+              textAlign: { xs: 'center', sm: 'left' },
               color: "#000",
               letterSpacing: "10px",
-              mt:  {xs: 0, sm: 0}
+              mt: { xs: 0, sm: 0 }
             }}
           >
             EL3V3N
           </Typography>
-          <Box
-            sx={{
-              display: { xs: "none", sm: "block" },
-              color: "#000",
-              letterSpacing: "10px",
-            }}
-          >
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: "#000" }}>
-                {item}
+          <Box sx={{ display: { xs: "none", sm: "block" }, color: "#000", letterSpacing: "10px" }}>
+            {navItems.map((item, index) => (
+              <Button 
+                key={index} 
+                component={Link} 
+                to={item.path} 
+                sx={{ 
+                  color: selectedItem === item.path ? 'grey' : '#000' // Change color based on selection
+                }}
+              >
+                {item.name}
               </Button>
             ))}
           </Box>
@@ -97,16 +126,10 @@ function DrawerAppBar(props) {
           variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
+          ModalProps={{ keepMounted: true }}
           sx={{
             display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-              background: "blur"
-            },
+            "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth, background: "blur" }
           }}
         >
           {drawer}
@@ -120,10 +143,6 @@ function DrawerAppBar(props) {
 }
 
 DrawerAppBar.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
   window: PropTypes.func,
 };
 
