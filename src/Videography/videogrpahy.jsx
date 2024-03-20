@@ -1,13 +1,51 @@
 import React from "react";
-import './videogrpahy';
+import './videography.css';
+
+const videosData = [
+    {
+        title: "The mountains are calling and i must go",
+        videoId: "F9uAhHSZeIM",
+    },
+    {
+        title: "Ruined house cinematic 4k",
+        videoId: "hrkmmumbXn8",
+    },
+    {
+        title: "Into the woods",
+        videoId: "AYuU8VgWOFY",
+    },
+    {
+        title: "College campus cinematic B-roll",
+        videoId: "s0s8tMeHSbs",
+    },
+    {
+        title: "Trek to South Kailash",
+        videoId: "it9YiEV0ELA",
+    },
+];
 
 const Videos = () => {
     return (
         <div>
-            <h1>In video page</h1>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis, tenetur ea culpa nihil ipsum doloremque eveniet saepe quaerat ad sint repellat eligendi consectetur, necessitatibus, odio blanditiis? Iusto ducimus voluptatum dolorem!</p>
+            {videosData.map((video, index) => (
+                <div key={index} className="video-container">
+                    <h2>{video.title}</h2>
+                    <iframe
+                        width="560"
+                        height="315"
+                        src={`https://www.youtube.com/embed/${video.videoId}`}
+                        title={`YouTube video player ${index}`}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                    ></iframe>
+                </div>
+            ))}
+            <div className="footer">
+            <p className="copyright">© 2024, EL3V3N</p>
+            </div>
         </div>
     );
-  };
-  
-  export default Videos;
+};
+
+export default Videos;

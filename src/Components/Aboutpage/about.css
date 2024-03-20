@@ -1,0 +1,99 @@
+/* global.css */
+
+/* Apply box-sizing border-box to all elements */
+* {
+  box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  /* Add more body styles as needed */
+}
+
+/* Basic styles for links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Styles for headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+}
+
+/* Footer styles */
+footer {
+  background-color: #f0f0f0;
+  padding: 20px;
+  text-align: center;
+}
+
+.about {
+  display: flex;
+  justify-content: center;
+  letter-spacing: 10px;
+}
+
+.about-text {
+  display: flex;
+  margin: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  z-index: 2;
+}
+.profile-image {
+  display: flex;
+  margin: auto;
+  max-width: 30%;
+  max-height: 30%;
+}
+
+.footer {
+  position: relative;
+  top: 20px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer a:hover {
+  color: lightgray;
+}
+
+.logo-image img {
+  max-width: 30px;
+  height: auto;
+}
+.social-link {
+  margin: 0 0.5rem;
+}
+
+.social-icon {
+  max-width: 30px;
+  height: auto;
+}
+.footer .copyright {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 10px; /* Adjust as needed */
+  font-size: 14px; /* Adjust font size as needed */
+  color: #555; /* Adjust color as needed */
+}
