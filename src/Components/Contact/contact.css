@@ -1,0 +1,118 @@
+/* global.css */
+
+/* Apply box-sizing border-box to all elements */
+* {
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    /* Add more body styles as needed */
+}
+
+/* Basic styles for links */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Styles for headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+}
+
+/* Card container styles */
+.card-container {
+    display: flex; /* Display cards in a row */
+    flex-wrap: nowrap; /* Prevent cards from wrapping */
+    justify-content: center; /* Center cards horizontally */
+    overflow-x: auto; /* Add horizontal scroll if cards exceed container width */
+}
+
+.custom-card {
+    width: 300px; /* Set fixed width for the cards */
+    height: auto;
+    background-color: #fff;
+    margin: 20px; /* Adjust margin to create space between cards */
+    text-align: center; /* Center text within card */
+    border: 1px solid #ddd; /* Add border */
+    border-radius: 5px; /* Add border radius */
+    display: flex; /* Display flex for card content */
+    flex-direction: column; /* Align content vertically */
+    justify-content: space-between; /* Space between card content */
+}
+
+.card-content {
+    padding: 16px;
+    flex: 1; /* Adjust padding as needed */
+}
+
+.email-container{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+
+.social-container  {
+    margin-top: auto;
+}
+
+.email-image,
+.social-image {
+    width: 50px;
+}
+
+.card-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: auto; /* Align at the bottom */
+}
+
+.email-button{
+    font-size: 18px;
+}
+.social-button {
+    font-size: 18px;
+    top: 50px;
+    margin-top: auto;
+}
+
+.email-button:hover,
+.social-button:hover {
+    cursor: pointer;
+    transition: 0.4s;
+    color: #ffa726;
+    transform: scale(1.1);
+}
+
+/* Footer styles */
+footer {
+    position: relative;
+    top: 20px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer a:hover {
+    color: lightgray;
+}

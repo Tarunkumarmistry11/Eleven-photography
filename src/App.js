@@ -6,6 +6,8 @@ import About from "./Components/Aboutpage/about";
 import Home from "./Components/Home/home.jsx";
 import { Route, Routes } from "react-router-dom";
 import Videos from "./Videography/videogrpahy.jsx";
+import Contact from "./Components/Contact/contact.jsx";
+import Gallery from "./Components/Gallery/gallery.jsx";
 
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/videos" element={<Videos />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/gallery" element={<Gallery />} />
       </Routes>
     </div>
   );
