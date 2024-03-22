@@ -8,6 +8,7 @@ import { Route, Routes } from "react-router-dom";
 import Videos from "./Videography/videogrpahy.jsx";
 import Contact from "./Components/Contact/contact.jsx";
 import Gallery from "./Components/Gallery/gallery.jsx";
+import Presets from "./Components/Presets/presets.jsx";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/videos" element={<Videos />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/gallery" element={<Gallery />} />
+        <Route path="presets" element={<Presets />} />
       </Routes>
     </div>
   );
